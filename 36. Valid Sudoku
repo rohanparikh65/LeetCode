@@ -1,0 +1,39 @@
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+
+        boolean sudoku = true;
+
+        for(int i=0; i<9; i++){
+            for(int j=0; j<9; j++){
+                if(board[i][j] == '.'){
+                    continue;
+                }
+
+                for(int k = j+1; k<9;k++){
+                    if(board[i][k]==board[i][j]){
+                        sudoku = false;
+                    }
+                }
+                for(int k = i+1; k<9;k++){
+                    if(board[k][j]==board[i][j]){
+                        sudoku = false;
+                    }
+                }
+
+                int m = (i/3)*3;
+                int n = (j/3)*3;
+                for(int k=m; k<3+m;k++){
+                    for(int l=n;l<3+n;l++){
+                        if((i!=k || j!=l) && (board[i][j]==board[k][l])){
+                            sudoku = false;
+                        }
+                    }
+                }
+
+                
+            }
+        }
+        return sudoku;
+        
+    }
+}
