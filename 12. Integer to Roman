@@ -1,0 +1,56 @@
+class Solution {
+    public String intToRoman(int num) {
+        return Roman(num,"");
+        
+    }
+    public String Roman(int num, String cr){
+        if(num>=1000){
+            num = num -1000;
+            cr = cr + "M";
+        }
+        else if(num>=900){
+            num = num - 900;
+            cr = cr + "CM";
+        }
+        else if(num>=500){
+            num = num -500;
+            cr = cr + "D";
+        }
+        else if(num>=400){
+            num = num -400;
+            cr = cr + "CD";
+        }
+        else if(num>=100){
+            num = num -100;
+            cr = cr + "C";
+        }else if(num>=90){
+            num = num -90;
+            cr = cr + "XC";
+        }else if(num>=50){
+            num = num -50;
+            cr = cr + "L";
+        }else if(num>=40){
+            num = num -40;
+            cr = cr + "XL";
+        }else if(num>=10){
+            num = num -10;
+            cr = cr + "X";
+        }else if(num>=9){
+            num = num -9;
+            cr = cr + "IX";
+        }else if(num>=5){
+            num = num -5;
+            cr = cr + "V";
+        }else if(num>=4){
+            num = num -4;
+            cr = cr + "IV";
+        }else if(num>=1){
+            num = num -1;
+            cr = cr + "I";
+        }
+        else
+            return cr;
+        
+        return Roman(num,cr);
+    }
+}
