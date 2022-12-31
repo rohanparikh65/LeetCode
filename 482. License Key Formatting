@@ -1,0 +1,20 @@
+class Solution {
+    public String licenseKeyFormatting(String s, int k) {
+        StringBuilder n = new StringBuilder();
+        int c = 0;
+        for(int i = s.length()-1;i>=0;i--){
+            if(s.charAt(i)=='-'){
+                continue;
+            }
+            else if(c>0 && c%k==0){
+                n.append('-');
+                
+            }
+            
+            n.append(Character.toUpperCase(s.charAt(i)));
+            c++;
+        }
+        return n.reverse().toString();
+       
+    }
+}
